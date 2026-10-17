@@ -1,0 +1,44 @@
+name: Basic CI # nama untuk actions yang dijalankan
+
+# kapan ci dijalankan
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+# daftar pekerjaan yang dijalankan oleh ci / github actions
+jobs:
+  test: # nama pekerjaan nya
+    runs-on: ubuntu-latest # runner os yang digunakan
+
+    # langkah-langkah yang dijalankan
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # mengkloning (mengunduh) isi kode repositori proyek
+
+      # 1. Install pnpm sebelum setup Node.js
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4 # mengunduh dan menyiapkan environment pnpm.
+        with:
+          version: 9 # versi pnpm yang digunakan
+
+      # 2. Setup Node.js dan mengarahkan cache ke pnpm
+      - name: Setup Node.js
+        uses: actions/setup-node@v4 # menginstal runtime Node.js dengan versi tertentu
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # 3. Menggunakan perintah eksekusi dengan pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run test
+        run: pnpm test
+
+      - name: Build application
+        run: pnpm build
