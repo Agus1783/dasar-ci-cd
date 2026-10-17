@@ -1,7 +1,7 @@
 function App() {
   return (
     <main>
-      <h1>Belajar CI/CD</h1>
+      <h1>Nusantara Code</h1>
 
       <p>
         React + TypeScript + GitHub Actions
