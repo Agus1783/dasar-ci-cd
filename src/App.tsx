@@ -1,7 +1,7 @@
 function App() {
   return (
     <main>
-      <h1>Nusantara Code</h1>
+      <h1>Belajar CI/CD</h1>
 
       <p>
         React + TypeScript + GitHub Actions
@@ -11,7 +11,7 @@ function App() {
         <h2>Pipeline dengan Github Actions</h2>
 
         <p>
-          Code → Test → Build → Deploy
+          Code → Test → Build → Deploy → Vercel Free
         </p>
       </section>
     </main>
