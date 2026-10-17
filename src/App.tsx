@@ -11,7 +11,7 @@ function App() {
         <h2>Pipeline dengan Github Actions</h2>
 
         <p>
-          Code → Test → Build → Deploy
+          Code → Test → Build → Deploy → Vercel Free
         </p>
       </section>
     </main>
